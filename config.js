@@ -3,13 +3,13 @@ var config = {
   baseUrl: 'http://localhost:7890',
 
   debug: false,
-  title: 'Twitter wall built by @rem',
+  title: 'Paris Web fait le buzz sur Twitter !',
 
-  search: 'from:@fullfrontalconf OR @fullfrontalconf OR #fullfrontalconf OR #fullfrontal2011 OR full-frontal.org OR #fullfrontal11',
-  list: 'fullfrontalconf/delegates11', // optional, just comment it out if you don't want it
+  search: 'from:@parisweb OR @parisweb OR from:@coulissespw OR @coulissespw OR #parisweb OR #parisweb2014 OR #parisweb14',
+  // list: 'fullfrontalconf/delegates11', // optional, just comment it out if you don't want it
 
   timings: {
-    showNextScheduleEarlyBy: '5m', // show the next schedule 10 minutes early
+    showNextScheduleEarlyBy: '10m', // show the next schedule 10 minutes early
     defaultNoticeHoldTime: '10s',
     showTweetsEvery: '3s'
   }

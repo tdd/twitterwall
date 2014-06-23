@@ -19,7 +19,7 @@ html {
 body {
   font-family: 'Century Gothic', sans-serif;
   color: #93cfd6;
-  font-size: 24px; 
+  font-size: 24px;
 }
 
 #schedule div {
@@ -38,8 +38,8 @@ body {
   letter-spacing: -0.1em;
 }
 
-#schedule { 
-  color: #000; 
+#schedule {
+  color: #000;
   position: relative;
   background-repeat: no-repeat;
   background-size: cover;
@@ -84,40 +84,40 @@ body {
 
 /* this simply puts a large background image on the schedule element if it matches the schedule time */
 #schedule[data-time="0940"] {
-  background-image: url(/images/sample/remy.jpg);
+  background-image: url(images/sample/remy.jpg);
 }
 #schedule[data-time="0950"] {
-  background-image: url(/images/sample/jeremy.jpg);
+  background-image: url(images/sample/jeremy.jpg);
 }
 #schedule[data-time="1030"] {
-  background-image: url(/images/sample/phil.jpg);
+  background-image: url(images/sample/phil.jpg);
 }
 #schedule[data-time="1110"] {
-  background-image: url(/images/sample/break1.jpg);
+  background-image: url(images/sample/break1.jpg);
 }
 #schedule[data-time="1140"] {
-  background-image: url(/images/sample/marijn.jpg);
+  background-image: url(images/sample/marijn.jpg);
 }
 #schedule[data-time="1220"] {
-  background-image: url(/images/sample/rik.jpg);
+  background-image: url(images/sample/rik.jpg);
 }
 #schedule[data-time="1430"] {
-  background-image: url(/images/sample/nicholas.jpg);
+  background-image: url(images/sample/nicholas.jpg);
 }
 #schedule[data-time="1510"] {
-  background-image: url(/images/sample/glenn.jpg);
+  background-image: url(images/sample/glenn.jpg);
 }
 #schedule[data-time="1550"] {
-  background-image: url(/images/samplebreak2.jpg);
+  background-image: url(images/samplebreak2.jpg);
 }
 #schedule[data-time="1620"] {
-  background-image: url(/images/sample/brendan.jpg);
+  background-image: url(images/sample/brendan.jpg);
 }
 #schedule[data-time="1700"] {
-  background-image: url(/images/sample/marcin.jpg);
+  background-image: url(images/sample/marcin.jpg);
 }
 #schedule[data-time="1900"] {
-  background-image: url(/images/sample/closing.jpg); 
+  background-image: url(images/sample/closing.jpg);
 }
 
 /* this allows us to customise what part is animated to fullscreen */

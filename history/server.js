@@ -11,15 +11,15 @@ var twitterlib = require('./twitterlib'),
       list: 0,
       search: 0
     };
-    
+
 
 function save(tweets, options) {
   var type = options.method;
   if (tweets.length) {
     fs.writeFileSync('./data/' + type + (++counters[type]) + '.json', 'callback(' + JSON.stringify(tweets) + ')', 'utf8');
-    lastId[type] = tweets[0].id;    
+    lastId[type] = tweets[0].id;
   }
-  
+
   setTimeout(function () {
     getTweets(type);
   }, 60 * 1000 * 5);
@@ -35,6 +35,6 @@ function getTweets(type) {
 
 setTimeout(function () {
   getTweets('search');
-}, 60 * 1000 * 2.5); // 2.5 mins 
+}, 60 * 1000 * 2.5); // 2.5 mins
 
 getTweets('list');

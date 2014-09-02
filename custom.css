@@ -22,23 +22,22 @@ body {
   font-size: 24px;
 }
 
-#schedule div {
+.schedule div {
   position: absolute;
   bottom: 0;
   right: 0;
   left: 0;
   background: rgba(255,255,255,0.6);
-
   padding: 20px;
 }
 
-#schedule div > * {
+.schedule div > * {
   margin: 0;
   padding: 0;
   letter-spacing: -0.1em;
 }
 
-#schedule {
+.schedule {
   color: #000;
   position: relative;
   background-repeat: no-repeat;
@@ -47,26 +46,39 @@ body {
   overflow: hidden;
 }
 
-#schedule a {
+.schedule a {
   color: rgba(0,0,0,0.7);
 }
 
-#schedule h3 {
+.schedule .timing { border-bottom: 1px solid rgba(128, 128, 128, 0.5); }
+
+.schedule .room, .schedule time { font-weight: bold; color: #dc13b6; }
+
+.schedule .twitter {
+  margin-left: 0.25em;
+  font-family: Monaco, "DejaVu Sans Mono", "Courier New", monospace;
+  font-size: 90%;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.schedule h3 {
   padding-top: 0px;
-  font-size: 54px;
+  font-size: 2em;
+  line-height: 0.9em;
   clear: right;
 }
 
-#schedule h2 {
-  line-height: 48px;
-  font-size: 34px;
+.schedule h2 {
+  line-height: 1.3em;
+  font-size: 1.5em;
+  color: #00608d;
 }
 
-#schedule > * {
+.schedule > * {
   text-shadow: 0px 1px 1px #fff;
 }
 
-#schedule img {
+.schedule img {
   position: absolute;
   top: 0;
   left: 0;
@@ -83,40 +95,83 @@ body {
 .tweet { color: #fff; }
 
 /* this simply puts a large background image on the schedule element if it matches the schedule time */
-#schedule[data-time="0940"] {
+#moebius[data-time="0930"] {
   background-image: url(images/sample/remy.jpg);
 }
-#schedule[data-time="0950"] {
+#moebius[data-time="1035"] {
   background-image: url(images/sample/jeremy.jpg);
 }
-#schedule[data-time="1030"] {
+#moebius[data-time="1050"] {
   background-image: url(images/sample/phil.jpg);
 }
-#schedule[data-time="1110"] {
+#moebius[data-time="1105"] {
   background-image: url(images/sample/break1.jpg);
 }
-#schedule[data-time="1140"] {
+#moebius[data-time="1125"] {
   background-image: url(images/sample/marijn.jpg);
 }
-#schedule[data-time="1220"] {
+#moebius[data-time="1230"] {
   background-image: url(images/sample/rik.jpg);
 }
-#schedule[data-time="1430"] {
+#moebius[data-time="1250"] {
+  background-image: url(images/sample/break2.jpg);
+}
+#moebius[data-time="1410"] {
   background-image: url(images/sample/nicholas.jpg);
 }
-#schedule[data-time="1510"] {
+#moebius[data-time="1515"] {
   background-image: url(images/sample/glenn.jpg);
 }
-#schedule[data-time="1550"] {
-  background-image: url(images/samplebreak2.jpg);
+#moebius[data-time="1605"] {
+  background-image: url(images/sample/break2.jpg);
 }
-#schedule[data-time="1620"] {
+#moebius[data-time="1625"] {
   background-image: url(images/sample/brendan.jpg);
 }
-#schedule[data-time="1700"] {
+#moebius[data-time="1700"] {
   background-image: url(images/sample/marcin.jpg);
 }
-#schedule[data-time="1900"] {
+#moebius[data-time="1900"] {
+  background-image: url(images/sample/closing.jpg);
+}
+
+#blin[data-time="0930"] {
+  background-image: url(images/sample/remy.jpg);
+}
+#blin[data-time="1035"] {
+  background-image: url(images/sample/jeremy.jpg);
+}
+#blin[data-time="1050"] {
+  background-image: url(images/sample/phil.jpg);
+}
+#blin[data-time="1105"] {
+  background-image: url(images/sample/break1.jpg);
+}
+#blin[data-time="1125"] {
+  background-image: url(images/sample/marijn.jpg);
+}
+#blin[data-time="1230"] {
+  background-image: url(images/sample/rik.jpg);
+}
+#blin[data-time="1250"] {
+  background-image: url(images/sample/break2.jpg);
+}
+#blin[data-time="1410"] {
+  background-image: url(images/sample/nicholas.jpg);
+}
+#blin[data-time="1515"] {
+  background-image: url(images/sample/glenn.jpg);
+}
+#blin[data-time="1605"] {
+  background-image: url(images/sample/break2.jpg);
+}
+#blin[data-time="1625"] {
+  background-image: url(images/sample/brendan.jpg);
+}
+#blin[data-time="1700"] {
+  background-image: url(images/sample/marcin.jpg);
+}
+#blin[data-time="1900"] {
   background-image: url(images/sample/closing.jpg);
 }
 
@@ -129,4 +184,22 @@ body {
 /* this third notice will slide upwards as it also has .fullscreen */
 #notice3.show {
   top: 0;
+}
+
+#clock {
+  /* display: none; */
+  position: fixed;
+  width: auto;
+  height: auto;
+  right: 10px;
+  bottom: 10px;
+  font-size: 2em;
+  border: none;
+  border-radius: 0.4em;
+  background: #13c2f8;
+  color: white;
+  opacity: 0.5;
+}
+#clock:hover, #clock:focus {
+  background: #0fabdc; cursor: pointer;
 }

@@ -1,96 +1,156 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8" />
-<title>Conference Twitter Wall</title>
-<link rel="stylesheet" type="text/css" href="app/screen.css">
-
-<!-- make your customisations to the twitter wall using the custom.css -->
-<link rel="stylesheet" type="text/css" href="custom.css">
+  <meta charset="utf-8" />
+  <title>Paris Web 2014 Twitter Wall</title>
+  <link rel="stylesheet" type="text/css" href="app/screen.css">
+  <link rel="stylesheet" type="text/css" href="custom.css">
 </head>
 <body class="hflex-wrapper">
-  <div class="vflex-wrapper50">
-    <div id="schedule">
-      <!-- style the schedule as you please -->
-      <div id="iErgo" data-time="0930">
-        <p>À venir : 9:30 en salle Moebius</p>
-        <h2>Raphaël Yharrassarry <a href="http://twitter.com/iErgo">@iErgo</a></h2>
-        <h3>Science-fiction &amp; interaction !</h3>
+  <div id="leftColumn">
+    <div id="schedules">
+      <div id="moebius" class="schedule">
+        <div id="iErgo" data-time="0930">
+          <p class="timing">À <time>9:30</time> en salle <span class="room">Moebius</span></p>
+          <h2>Raphaël Yharrassarry <a class="twitter" href="http://twitter.com/iErgo">@iErgo</a></h2>
+          <h3>Science-fiction &amp; interaction !</h3>
+        </div>
+        <div id="iamvdo" data-time="1035">
+          <p>À <time>10:35</time> en salle <span class="room">Moebius</span></p>
+          <h2>Vincent de Oliveira <a class="twitter" href="http://twitter.com/iamvdo">@iamvdo</a></h2>
+          <h3>Les masques CSS : vers de nouveaux usages dans le webdesign</h3>
+        </div>
+        <div id="odevillardi" data-time="1050">
+          <p>À <time>10:50</time> en salle <span class="room">Moebius</span></p>
+          <h2>Olivier de Villardi <a class="twitter" href="http://twitter.com/odevillardi">@odevillardi</a></h2>
+          <h3>Le web fait pousser mes tomates</h3>
+        </div>
+        <div id="morning-break" data-time="1105">
+          <p>À <time>11:05</time></p>
+          <h3>Pause</h3>
+          <p>On reprend dans 20 minutes</p>
+        </div>
+        <div id="brucel-karlgroves" data-time="1125">
+          <p>À <time>11:25</time> en salle <span class="room">Moebius</span></p>
+          <h2>Bruce Lawson <a class="twitter" href="http://twitter.com/brucel">@brucel</a> &amp; Karl Groves <a class="twitter" href="http://twitter.com/karlgroves">@karlgroves</a></h2>
+          <h3>Web Components, the right way</h3>
+        </div>
+        <div id="cbalit" data-time="1230">
+          <p>À <time>12:30</time> en salle <span class="room">Moebius</span></p>
+          <h2>Cyril Balit <a class="twitter" href="http://twitter.com/cbalit">@cbalit</a></h2>
+          <h3>Présentation des outils de tests cross browser</h3>
+        </div>
+        <div id="lunch" data-time="1250">
+          <p>À <time>12:50</time></p>
+          <h3>Déjeuner</h3>
+          <p>On reprend à 14:10</p>
+        </div>
+        <div id="markodugonjic" data-time="1410">
+          <p>À <time>14:10</time> en salle <span class="room">Moebius</span></p>
+          <h2>Marko Dugonjić <a class="twitter" href="http://twitter.com/markodugonjic">@markodugonjic</a></h2>
+          <h3>Responsive Web Typography</h3>
+        </div>
+        <div id="hteumeuleu" data-time="1515">
+          <p>À <time>15:15</time> en salle <span class="room">Moebius</span></p>
+          <h2>Rémi Parmentier <a class="twitter" href="http://twitter.com/hteumeuleu">@hteumeuleu</a></h2>
+          <h3>Sortons de l’enfer de l’intégration des e-mails</h3>
+        </div>
+        <div id="afternoon-break" data-time="1605">
+          <p>À <time>16:05</time></p>
+          <h3>Pause</h3>
+          <p>On reprend dans 20 minutes</p>
+        </div>
+        <div id="bastnic" data-time="1625">
+          <p>À <time>16:25</time> en salle <span class="room">Moebius</span></p>
+          <h2>Bastien Jaillot <a class="twitter" href="http://twitter.com/bastnic">@bastnic</a></h2>
+          <h3>Profession : pompier</h3>
+        </div>
+        <div id="thebillygregory" data-time="1700">
+          <p>À <time>17:00</time> en salle <span class="room">Moebius</span></p>
+          <h2>Billy Gregory <a class="twitter" href="http://twitter.com/thebillygregory">@thebillygregory</a></h2>
+          <h3>Things I wish I knew when I started in Digital Accessibility</h3>
+        </div>
       </div>
-      <div id="iamvdo" data-time="1035">
-        <p>À venir : 10:35 en salle Moebius</p>
-        <h2>Vincent de Oliveira <a href="http://twitter.com/iamvdo">@iamvdo</a></h2>
-        <h3>Les masques CSS : vers de nouveaux usages dans le webdesign</h3>
-      </div>
-      <div id="odevillardi" data-time="1050">
-        <p>À venir : 10:50 en salle Moebius</p>
-        <h2>Olivier de Villardi <a href="http://twitter.com/odevillardi">@odevillardi</a></h2>
-        <h3>Le web fait pousser mes tomates</h3>
-      </div>
-      <div id="morning-break" data-time="1105">
-        <p>À venir : 11:05</p>
-        <h3>Pause</h3>
-        <p>On reprend dans 20 minutes</p>
-      </div>
-      <div id="brucel-karlgroves" data-time="1125">
-        <p>À venir : 11:25 en salle Moebius</p>
-        <h2>Bruce Lawson <a href="http://twitter.com/brucel">@brucel</a> &amp; Karl Groves <a href="http://twitter.com/karlgroves">@karlgroves</a></h2>
-        <h3>Web Components, the right way</h3>
-      </div>
-      <div id="cbalit" data-time="1230">
-        <p>À venir : 12:30 en salle Moebius</p>
-        <h2>Cyril Balit <a href="http://twitter.com/cbalit">@cbalit</a></h2>
-        <h3>Présentation des outils de tests cross browser</h3>
-      </div>
-      <div id="lunch" data-time="1250">
-        <p>À venir : 12:50</p>
-        <h3>Déjeuner</h3>
-        <p>On reprend à 14:10</p>
-      </div>
-      <div id="markodugonjic" data-time="1410">
-        <p>À venir : 14:10 en salle Moebius</p>
-        <h2>Marko Dugonjić <a href="http://twitter.com/markodugonjic">@markodugonjic</a></h2>
-        <h3>Responsive Web Typography</h3>
-      </div>
-      <div id="hteumeuleu" data-time="1515">
-        <p>À venir : 15:15 en salle Moebius</p>
-        <h2>Rémi Parmentier <a href="http://twitter.com/hteumeuleu">@hteumeuleu</a></h2>
-        <h3>Sortons de l’enfer de l’intégration des e-mails</h3>
-      </div>
-      <div id="afternoon-break" data-time="1605">
-        <p>À venir : 16:05</p>
-        <h3>Pause</h3>
-        <p>On reprend dans 20 minutes</p>
-      </div>
-      <div id="bastnic" data-time="1625">
-        <p>À venir : 16:25 en salle Moebius</p>
-        <h2>Bastien Jaillot <a href="http://twitter.com/bastnic">@bastnic</a></h2>
-        <h3>Profession : pompier</h3>
-      </div>
-      <div id="thebillygregory" data-time="1700">
-        <p>À venir : 17:00 en salle Moebius</p>
-        <h2>Billy Gregory <a href="http://twitter.com/thebillygregory">@thebillygregory</a></h2>
-        <h3>Things I wish I knew when I started in Digital Accessibility</h3>
+      <div id="blin" class="schedule">
+        <div id="ElieSl-Nico3333fr" data-time="0930">
+          <p class="timing">À <time>9:30</time> en salle <span class="room">Blin</span></p>
+          <h2>
+            Élie Sloïm <a class="twitter" href="http://twitter.com/ElieSl">@ElieSl</a> &amp;
+            Nicolas Hoffman <a class="twitter" href="http://twitter.com/Nico3333fr">@Nico3333fr</a>
+          </h2>
+          <h3>Qualité web : l’heure de passer à la caisse</h3>
+        </div>
+        <div id="porteneuve" data-time="1035">
+          <p>À <time>10:35</time> en salle <span class="room">Blin</span></p>
+          <h2>Christophe Porteneuve <a class="twitter" href="http://twitter.com/porteneuve">@porteneuve</a></h2>
+          <h3>JS + toi = &heart;</h3>
+        </div>
+        <div id="morning-break" data-time="1105">
+          <p>À <time>11:05</time></p>
+          <h3>Pause</h3>
+          <p>On reprend dans 20 minutes</p>
+        </div>
+        <div id="Melle_Tweek" data-time="1125">
+          <p>À <time>11:25</time> en salle <span class="room">Blin</span></p>
+          <h2>Olivia Lor <a class="twitter" href="http://twitter.com/Melle_Tweek">@Melle_Tweek</a></h2>
+          <h3>Interactions : animations et interfaces</h3>
+        </div>
+        <div id="goulvench" data-time="1230">
+          <p>À <time>12:30</time> en salle <span class="room">Blin</span></p>
+          <h2>Goulven Champenois <a class="twitter" href="http://twitter.com/goulvench">@goulvench</a></h2>
+          <h3>Intitulés de poste : bas les masques !</h3>
+        </div>
+        <div id="lunch" data-time="1250">
+          <p>À <time>12:50</time></p>
+          <h3>Déjeuner</h3>
+          <p>On reprend à 14:10</p>
+        </div>
+        <div id="JulienOG" data-time="1410">
+          <p>À <time>14:10</time> en salle <span class="room">Blin</span></p>
+          <h2>Julien Oger <a class="twitter" href="http://twitter.com/JulienOG">@JulienOG</a></h2>
+          <h3>Petite histoire d’une méthodologie agilement établie</h3>
+        </div>
+        <div id="prune" data-time="1515">
+          <p>À <time>15:15</time> en salle <span class="room">Blin</span></p>
+          <h2>Prune Lieutier</h2>
+          <h3>Créer pour de nouveaux formats : de l'imprimé à l'augmenté, défis et perspectives</h3>
+        </div>
+        <div id="afternoon-break" data-time="1605">
+          <p>À <time>16:05</time></p>
+          <h3>Pause</h3>
+          <p>On reprend dans 20 minutes</p>
+        </div>
+        <div id="userscanhelp" data-time="1625">
+          <p>À <time>16:25</time> en salle <span class="room">Blin</span></p>
+          <h2>Eric Nouri <a class="twitter" href="http://twitter.com/userscanhelp">@userscanhelp</a></h2>
+          <h3>Créer des ponts entre le point de vente physique et la vente en ligne</h3>
+        </div>
+        <div id="djelmen" data-time="1700">
+          <p>À <time>17:00</time> en salle <span class="room">Blin</span></p>
+          <h2>Jean-Loup Yu <a class="twitter" href="http://twitter.com/djelmen">@djelmen</a></h2>
+          <h3>Mutation d’un géant du web vers le Mobile</h3>
+        </div>
       </div>
     </div>
     <div id="notices">
       <!-- here you create divs that are shown on a rotation, add fullscreen class, and customise the hold time with data-hold-time="3s" -->
-      <!--
-      <div id="notice1">
+      <div id="sponsors">
         <img src="images/sample/sponsors.png">
       </div>
+      <!--
       <div id="notice2">
         Panel 2
       </div>
       <div id="notice3" data-hold-time="3s" class="fullscreen">
         Panel 3
       </div>
-    -->
+      -->
     </div>
   </div>
   <div id="twitterwall">
     <ul id="tweets"></ul>
   </div>
+  <button id="clock"></button>
 
   <script type="text/html" id="tweet_template">
     <li id="<%=id%>">

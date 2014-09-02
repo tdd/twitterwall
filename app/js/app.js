@@ -1,7 +1,10 @@
 /**
  * Twitterlib setup
  */
+
 twitterlib.cache(true);
+
+window.debugTime = parseTime(window.location.hash.slice(1) || '0915');
 
 /**
  * Tweet Queue
@@ -31,7 +34,7 @@ function Queue(delay, callback) {
         item = [item];
       }
 
-      if (timer == null && q.length == 0) {
+      if (timer == null && q.length === 0) {
         this.start();
       }
 
@@ -70,7 +73,69 @@ function Queue(delay, callback) {
     q: q,
     next: process
   };
-}; //.start();
+} //.start();
+
+function Schedule(container) {
+  this.$container = $(container);
+  this.$schedule = this.$container.children('div');
+  this.lastDue = null;
+  this.schedule = schedule = {};
+  this.$schedule.each(function() {
+    schedule[this.getAttribute('data-time')] = $(this);
+  });
+  this.times = Object.keys(this.schedule).sort();
+  if (!this.times.length) {
+    return;
+  }
+
+  // click on the schedule to move forward (for testing)
+  this.$container.click(this.showNext.bind(this));
+
+  this.$schedule.hide();
+  this.checkNext();
+}
+
+$.extend(Schedule.prototype, {
+  checkNext: function checkNext() {
+    this.showSchedule(this.findNextSchedule(config.timings.showNextScheduleEarlyBy || 0));
+  },
+
+  findNextSchedule: function findNextSchedule(delayM, after) {
+    var t = after ? parseTime(after) : window.debugTime || (new Date()).getTime();
+    var s, parsed;
+
+    for (var i = this.times.length - 1; i >= 0; i--) {
+      s = this.times[i];
+      if (parseTime(s) - delayM <= t) {
+        break;
+      }
+    }
+    return s;
+  },
+
+  showNext: function showNext() {
+    this.showSchedule(this.findNextSchedule(0, this.lastDue));
+  },
+
+  showSchedule: function showSchedule(due) {
+    if (due === this.lastDue) {
+      return;
+    }
+
+    this.lastDue = due;
+    if (this.active) {
+      this.active.animate({ opacity: 0 });
+    }
+    (this.active = this.schedule[due]).css({ opacity: 0 }).show().animate({ opacity: 1 });
+    this.$container.attr('data-time', due);
+    // var $content = $('#content div').html(SCHEDULE[due]),
+    //     $img = $content.find('img').remove();
+    // $content.parent().css('background-image', 'url(' + $img.attr('src') + ')');
+    // if (due === '7:00 PM') {
+    //   $('#content').addClass('map');
+    // }
+  }
+});
 
 // selector to find elements below the fold
 $.extend($.expr[':'], {
@@ -114,52 +179,10 @@ function parseTiming(t) {
   return t;
 }
 
-function findNextSchedule(delayM, after) {
-  var due = null,
-      t = after ? parseTime(after) : window.debugTime || (new Date()).getTime(),
-      times = Object.keys(SCHEDULE).sort();
-
-  for (var i = 0; i < times.length; i++) {
-    s = times[i];
-    if ((parseTime(s) + delayM) > t) break;
-  }
-
-  first = false;
-
-  return s;
-}
-
-function showSchedule(due) {
-  if (due != lastDue) {
-    lastDue = due;
-    $schedule.hide();
-    SCHEDULE[due].show();
-    $('#schedule').attr('data-time', due);
-    // var $content = $('#content div').html(SCHEDULE[due]),
-    //     $img = $content.find('img').remove();
-    // $content.parent().css('background-image', 'url(' + $img.attr('src') + ')');
-    if (due == '7:00 PM') {
-//      $('#content').addClass('map');
-    }
-  }
-}
-
-function schedule() {
-  showSchedule(findNextSchedule(config.timings.showNextScheduleEarlyBy || 0));
-}
 
 function nextDue() {
   clearInterval(scheduleTimer);
-  showSchedule(findNextSchedule(0, lastDue));
-}
-
-// only used in testing
-function nextSchedule() {
-  var keys = Object.keys(SCHEDULE);
-  var i = keys.indexOf(lastDue) + 1;
-  if (i > keys.length) i = 0;
-
-  showSchedule(keys[i]);
+  schedules.forEach(function(s) { s.showNext(); });
 }
 
 function getInstagram(id, url) {
@@ -372,12 +395,31 @@ function init() {
 
   d = d.replace(/\D{3}\+/, '+').replace(/\s\(.*\)/, '').replace(new RegExp(year + ' '), '') + ' ' + year;
 
-  $('#schedule > div').hide();
+  schedules = [];
+  $('.schedule').each(function(i, container) {
+    schedules.push(new Schedule(container));
+  });
 
   run();
-  // schedule();
-  showSchedule(findNextSchedule(config.timings.showNextScheduleEarlyBy || 0));
   notices();
+
+  initClock();
+}
+
+function initClock() {
+  var clock = $('#clock');
+  updateClock();
+  clock.on('click', function() {
+    window.debugTime += 6 * 60 * 1000;
+    updateClock();
+    checkSchedules();
+  });
+
+  function updateClock() {
+    var now = new Date(window.debugTime);
+    now = (now.getHours() + ':' + now.getMinutes()).replace(/\b\d\b/g, '0$&');
+    clock.text(now);
+  }
 }
 
 if (config.timings) {
@@ -390,19 +432,14 @@ if (config.timings) {
 
 
 // schedule based processing
-var SCHEDULE = {},
-    $schedule = $('#schedule > div').each(function () {
-      SCHEDULE[this.getAttribute('data-time')] = $(this);
-    }),
+var schedules = [],
     photoServiceURLs = new RegExp('(flickr|instagr.am)'),
     photoURLs = new RegExp('(.jpg|.jpeg|.png|.gif)$'),
     tweetTemplate = tmpl('tweet_template'),
-    lastDue = null,
     winners = {};
 
 // Element cache
-var $tweets = $('#tweets'),
-    $scheduleContainer = $('#schedule');
+var $tweets = $('#tweets');
 
 // blocker
 //
@@ -467,7 +504,11 @@ var blocker = (function () {
   };
 }());
 
-var scheduleTimer = setInterval(schedule, 5000);
+function checkSchedules() {
+  schedules.forEach(function(s) { s.checkNext(); });
+}
+
+var scheduleTimer = setInterval(checkSchedules, 5000);
 
 // start a new queue and on the callback, render the tweet and animate it down
 var twitterQueue = new Queue(config.timings.showTweetsEvery || 3000, function (item) {
@@ -496,8 +537,6 @@ var twitterQueue = new Queue(config.timings.showTweetsEvery || 3000, function (i
   $tweets.find('p:below(' + window.innerHeight + ')').remove();
 }).empty(run);
 
-// click on the schedule to move forward (for testing)
-$scheduleContainer.click(nextDue);
 
 // space pauses twitter feed
 $(window).keydown(function (event) {
@@ -507,11 +546,3 @@ $(window).keydown(function (event) {
 });
 
 init();
-
-
-
-
-
-
-
-

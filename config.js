@@ -9,7 +9,7 @@ var config = {
   // list: 'fullfrontalconf/delegates11', // optional, just comment it out if you don't want it
 
   timings: {
-    showNextScheduleEarlyBy: '10m', // show the next schedule 10 minutes early
+    showNextScheduleEarlyBy: '10m', // show the next schedule 10 minutes after the previous starts
     defaultNoticeHoldTime: '10s',
     showTweetsEvery: '3s'
   }

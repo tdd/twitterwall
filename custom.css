@@ -175,16 +175,9 @@ body {
   background-image: url(images/sample/closing.jpg);
 }
 
-/* this allows us to customise what part is animated to fullscreen */
-#notices .fullscreen {
-  top: 100%;
-  background: white;
-}
+#sponsor-list p + p { margin-top: 1em; }
 
-/* this third notice will slide upwards as it also has .fullscreen */
-#notice3.show {
-  top: 0;
-}
+#premium-di { opacity: 1 !important; }
 
 #clock {
   /* display: none; */

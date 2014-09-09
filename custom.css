@@ -1,25 +1,24 @@
 @font-face {
-    font-family: 'Cabin Sketch';
-    src: url('fonts/cabinsketch-bold-webfont.eot');
-    src: url('fonts/cabinsketch-bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/cabinsketch-bold-webfont.woff') format('woff'),
-         url('fonts/cabinsketch-bold-webfont.ttf') format('truetype'),
-         url('fonts/cabinsketch-bold-webfont.svg#CabinSketchBold') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
+     font-family: 'OSPDIN';
+     src: url('fonts/OSP-DIN-webfont.eot');
+     src: url('fonts/OSP-DIN-webfont.eot?#iefix') format('embedded-opentype'),
+          url('fonts/OSP-DIN-webfont.woff') format('woff'),
+          url('fonts/OSP-DIN-webfont.ttf') format('truetype'),
+          url('fonts/OSP-DIN-webfont.svg#OSPDIN') format('svg');
+     font-weight: normal;
+     font-style: normal;
+ }
+
 
 html {
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAHklEQVQIW2P4//+/MBQzgDAICEMxXAAMYCoRIlCVANL6FYTYi5d+AAAAAElFTkSuQmCC);
-  background-position: center -100px; /* 71px */
-  background-repeat: repeat, no-repeat;
-  background-color: #008999;
+  background-color: #dadada;
 }
 
 body {
-  font-family: 'Century Gothic', sans-serif;
+  font-family: OSPDIN, sans-serif;
   color: #93cfd6;
   font-size: 24px;
+  letter-spacing: -0.05em;
 }
 
 .schedule div {
@@ -34,7 +33,6 @@ body {
 .schedule div > * {
   margin: 0;
   padding: 0;
-  letter-spacing: -0.1em;
 }
 
 .schedule {
@@ -50,15 +48,19 @@ body {
   color: rgba(0,0,0,0.7);
 }
 
-.schedule .timing { border-bottom: 1px solid rgba(128, 128, 128, 0.5); }
+.schedule .timing {
+  font-size: 1.2em;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+}
 
-.schedule .room, .schedule time { font-weight: bold; color: #dc13b6; }
+.schedule .room, .schedule time { color: #AE0E5B; }
 
 .schedule .twitter {
-  margin-left: 0.25em;
+  margin-left: 0.1em;
+  font-size: 70%;
+  letter-spacing: -0.1em;
   font-family: Monaco, "DejaVu Sans Mono", "Courier New", monospace;
-  font-size: 90%;
-  color: rgba(0, 0, 0, 0.6);
+  color: #494949;
 }
 
 .schedule h3 {
@@ -66,16 +68,17 @@ body {
   font-size: 2em;
   line-height: 0.9em;
   clear: right;
+  color: #1786A2;
 }
 
 .schedule h2 {
   line-height: 1.3em;
   font-size: 1.5em;
-  color: #00608d;
+  color: #AE0E5B;
 }
 
 .schedule > * {
-  text-shadow: 0px 1px 1px #fff;
+  text-shadow: 1px 1px 0 #ddd;
 }
 
 .schedule img {
@@ -175,15 +178,21 @@ body {
   background-image: url(images/sample/closing.jpg);
 }
 
+#tweets { font-family: sans-serif; }
+#tweets li { background: white; }
+.tweet { color: #1786A2; }
+#tweets a { color: #1C9EC2; }
+#tweets strong a { color: #AE0E5B; }
+
 #notices > div {
+  background-color: #FFFFFF;
   color: #1C9EC2;
+  font-size: 2em;
 }
+
+#premium-di { opacity: 1 !important; }
 
 #sponsor-list p + p { margin-top: 1em; }
-
-#premium-di {
-  font-size: 1.5em;
-}
 
 #di-op { margin: 1em 0; }
 

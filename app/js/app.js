@@ -463,7 +463,7 @@ function renderTweet(data) {
     name: data.user.name,
     profile_image_url: data.user.profile_image_url,
     created_at: data.created_at,
-    nice_date: twitterlib.time.datetime(data.created_at),
+    nice_date: moment(data.created_at).format('dddd D MMMM à HH:MM'),
     embeds: embeds,
     tweet: twitterlib.ify.clean(twitterlib.expandLinks(data))
   });
@@ -570,6 +570,7 @@ function init() {
 
   if (config.title) document.title = config.title;
 
+  moment.lang('fr');
   initSchedules();
   initNotices();
   initClock();

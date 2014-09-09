@@ -175,9 +175,19 @@ body {
   background-image: url(images/sample/closing.jpg);
 }
 
+#notices > div {
+  color: #1C9EC2;
+}
+
 #sponsor-list p + p { margin-top: 1em; }
 
-#premium-di { opacity: 1 !important; }
+#premium-di {
+  font-size: 1.5em;
+}
+
+#di-op { margin: 1em 0; }
+
+#di-details { margin-left: 1em; margin-right: 1em; }
 
 #clock {
   /* display: none; */

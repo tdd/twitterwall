@@ -93,24 +93,35 @@ function nextDue() {
 
 function initNotices() {
   var $notices = $('#notices > div');
+  var current = 0, length = $notices.length;
 
-  if ($notices.length > 1) {
-    // rotate
-    var current = 0,
-        length = $notices.length;
+  if (!$notices.length) {
+    return;
+  }
 
-    var show = function () {
-      var $current = $notices.removeClass('show').eq(current % length).addClass('show'),
-          customTiming = $current[0].getAttribute('data-hold-time')
+  var interval = config.timings.defaultNoticeInterval || 60000;
+  var initialDelay = config.timings.initialNoticeDelay || interval;
+  var hold = config.timings.defaultNoticeHoldTime || 10000;
+  setTimeout(show, initialDelay);
+
+  function show() {
+    var $previous = $notices.filter('.show');
+    $previous.removeClass('show');
+
+    if ($previous.length) {
       current++;
+      setTimeout(show, interval);
+      return;
+    }
 
-      if (customTiming) {
-        customTiming = parseTiming(customTiming);
-      }
+    var $current = $notices.eq(current % length).addClass('show');
+    var customTiming = $current.attr('data-hold-time');
 
-      setTimeout(show, customTiming || config.timings.defaultNoticeHoldTime || 10 * 1000);
-    };
-    show();
+    if (customTiming) {
+      customTiming = parseTiming(customTiming);
+    }
+
+    setTimeout(show, customTiming || hold);
   }
 }
 
@@ -560,7 +571,7 @@ function init() {
   if (config.title) document.title = config.title;
 
   initSchedules();
-  // initNotices();
+  initNotices();
   initClock();
   initTwitter();
 }

@@ -73,8 +73,10 @@ function checkSchedules() {
 }
 
 function initSchedules() {
+  if (scheduleTimer) {
+    clearInterval(scheduleTimer);
+  }
   schedules = [];
-  if (scheduleTimer) clearInterval(scheduleTimer);
   $('.schedule').each(function(i, container) {
     schedules.push(new Schedule(container));
   });
@@ -568,7 +570,9 @@ function init() {
     }
   }
 
-  if (config.title) document.title = config.title;
+  if (config.title) {
+    document.title = config.title;
+  }
 
   moment.lang('fr');
   initSchedules();

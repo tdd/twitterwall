@@ -57,12 +57,6 @@ $.extend(Schedule.prototype, {
     }
     (this.active = this.schedule[due]).css({ opacity: 0 }).show().animate({ opacity: 1 });
     this.$container.attr('data-time', due);
-    // var $content = $('#content div').html(SCHEDULE[due]),
-    //     $img = $content.find('img').remove();
-    // $content.parent().css('background-image', 'url(' + $img.attr('src') + ')');
-    // if (due === '7:00 PM') {
-    //   $('#content').addClass('map');
-    // }
   }
 });
 
@@ -104,7 +98,13 @@ function initNotices() {
   var interval = config.timings.defaultNoticeInterval || 60000;
   var initialDelay = config.timings.initialNoticeDelay || interval;
   var hold = config.timings.defaultNoticeHoldTime || 10000;
-  setTimeout(show, initialDelay);
+
+  var weAreOffline = false === navigator.onLine;
+  $(window).on('online offline', function() {
+    weAreOffline = false === navigator.onLine;
+  });
+
+  setTimeout(show, weAreOffline ? 0 : initialDelay);
 
   function show() {
     var $previous = $notices.filter('.show');
@@ -112,8 +112,10 @@ function initNotices() {
 
     if ($previous.length) {
       current++;
-      setTimeout(show, interval);
-      return;
+      if (!weAreOffline) {
+        setTimeout(show, interval);
+        return;
+      }
     }
 
     var $current = $notices.eq(current % length).addClass('show');

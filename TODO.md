@@ -1,14 +1,7 @@
 Tâche JIRA / annonce PW-staff pour obtenir ces infos
 
 > 7. Proper images for Thursday
-  = Nicolas Hoffman @Nico3333fr
-  = Élie Sloïm @ElieSl
-  <> Bastien Jaillot @bastnic
-  <> Billy Gregory @thebillygregory
   <> + choice // Bruce Lawson @brucel
-  <> Cyril Balit @cbalit
-  <> + bof // Eric Nouri @userscanhelp
-  <> Goulven Champenois @goulvench
 
   Karl Groves @karlgroves
   Christophe Porteneuve @porteneuve

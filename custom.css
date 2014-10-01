@@ -101,6 +101,8 @@ body {
   background-image: url(images/speakers/default.jpg);
 }
 
+/* Thursday 17 */
+
 #moebius[data-time="0930"] {
   background-image: url(images/speakers/raphael-yharrassarry.jpg);
 }
@@ -170,6 +172,85 @@ body {
 }
 #blin[data-time="1655"] {
   background-image: url(images/speakers/jean-loup-yu.jpg);
+}
+
+/* Friday 18 */
+
+#moebius[data-time="0910"] {
+  background-image: url(images/speakers/julien-anthony.jpg);
+}
+#moebius[data-time="1010"] {
+  background-image: url(images/speakers/agnes-haasser.jpg);
+}
+#moebius[data-time="1025"] {
+  background-image: url(images/speakers/nicolas-steinmetz.jpg);
+}
+#moebius[data-time="1045"] {
+  background-image: url(images/sample/break1.jpg);
+}
+#moebius[data-time="1110"] {
+  background-image: url(images/speakers/dennis-lembree.jpg);
+}
+#moebius[data-time="1210"] {
+  background-image: url(images/speakers/stephane-deschamps.jpg);
+}
+#moebius[data-time="1225"] {
+  background-image: url(images/speakers/jean-philippe-simonnet.jpg);
+}
+#moebius[data-time="1240"] {
+  background-image: url(images/lunch-1.jpg);
+}
+#moebius[data-time="1400"] {
+  background-image: url(images/speakers/philip-tellis.jpg);
+}
+#moebius[data-time="1500"] {
+  background-image: url(images/speakers/jeremie-patonnier.jpg);
+}
+#moebius[data-time="1555"] {
+  background-image: url(images/break-1.jpg);
+}
+#moebius[data-time="1620"] {
+  background-image: url(images/speakers/vanessa-ilmany.jpg);
+}
+#moebius[data-time="1635"] {
+  background-image: url(images/speakers/alain-vagner.jpg);
+}
+#moebius[data-time="1700"] {
+  background-image: url(images/speakers/lightning-talks.jpg);
+}
+
+#blin[data-time="0910"] {
+  background-image: url(images/speakers/leonie-marin.jpg);
+}
+#blin[data-time="1010"] {
+  background-image: url(images/speakers/jeremie-patonnier.jpg);
+}
+#blin[data-time="1045"] {
+  background-image: url(images/sample/break1.jpg);
+}
+#blin[data-time="1110"] {
+  background-image: url(images/speakers/hubert-sablonniere.jpg);
+}
+#blin[data-time="1210"] {
+  background-image: url(images/speakers/david-rousset.jpg);
+}
+#blin[data-time="1240"] {
+  background-image: url(images/lunch-2.jpg);
+}
+#blin[data-time="1400"] {
+  background-image: url(images/speakers/luc-poupard.jpg);
+}
+#blin[data-time="1500"] {
+  background-image: url(images/speakers/clement-hardouin.jpg);
+}
+#blin[data-time="1555"] {
+  background-image: url(images/break-2.jpg);
+}
+#blin[data-time="1620"] {
+  background-image: url(images/speakers/nicolas-el-azzi.jpg);
+}
+#blin[data-time="1635"] {
+  background-image: url(images/speakers/vincent-desdoigts.jpg);
 }
 
 #tweets { font-family: sans-serif; }

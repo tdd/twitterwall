@@ -1,4 +1,6 @@
-window.debugTime = parseTime(window.location.hash.slice(1) || '0915');
+if (-1 === window.location.search.indexOf('nodebug')) {
+  window.debugTime = parseTime(window.location.hash.slice(1) || '0915');
+}
 
 /************************************************
  SCHEDULES MANAGEMENT
@@ -500,17 +502,35 @@ function runTweets() {
 
 function initClock() {
   var clock = $('#clock');
-  updateClock();
-  clock.on('click', function() {
-    window.debugTime += 6 * 60 * 1000;
+  if (window.debugTime) {
+    var nextTime = (window.debugTime || 0) + 6 * 60 * 1000;
+    updateDebugClock(window.debugTime, nextTime);
+    clock.on('click', function() {
+      window.debugTime = nextTime;
+      updateDebugClock(window.debugTime, nextTime);
+      nextTime += 6 * 60 * 1000;
+      checkSchedules();
+    });
+  } else {
     updateClock();
-    checkSchedules();
-  });
+    setInterval(updateClock, 1000);
+  }
+
+  function pad2(d) {
+    return (d < 10 ? '0' : '') + d;
+  }
+
+  function formatTime(time, sep) {
+    var now = new Date(time);
+    return pad2(now.getHours()) + sep + pad2(now.getMinutes());
+  }
 
   function updateClock() {
-    var now = new Date(window.debugTime);
-    now = (now.getHours() + ':' + now.getMinutes()).replace(/\b\d\b/g, '0$&');
-    clock.text(now);
+    clock.text(formatTime(Date.now(), ':'));
+  }
+
+  function updateDebugClock() {
+    clock.text(formatTime(window.debugTime, ':')).attr('href', '#' + formatTime(nextTime, ''));
   }
 }
 

@@ -194,6 +194,7 @@ body {
   /* display: none; */
   position: fixed;
   z-index: 9999;
+  padding: 0 0.25em;
   width: auto;
   height: auto;
   right: 10px;
